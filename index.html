@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro YouTube Thumbnail Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Identity Services Library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="glass-container">
+        <h1 class="title">Thumbnail <span>Extractor</span></h1>
+
+        <!-- Google Sign-In Section -->
+        <div class="auth-section">
+            <div id="googleSignInContainer" class="hidden">
+                <div id="g_id_onload"
+                     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                     data-callback="handleCredentialResponse"
+                     data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-size="large"
+                     data-theme="outline"
+                     data-text="sign_in_with"
+                     data-shape="rectangular"
+                     data-logo_alignment="left">
+                </div>
+            </div>
+            <div id="userInfoContainer" class="user-info hidden">
+                <img id="userProfilePic" src="" alt="User Profile" class="user-profile-pic">
+                <span id="userName" class="user-name"></span>
+                <span id="userEmail" class="user-email"></span>
+                <button id="signOutBtn" class="sign-out-btn">Sign Out</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="urlInput" placeholder="YouTube URL yahan paste karein..." spellcheck="false">
+            <button id="fetchBtn">
+                <span class="btn-text">Fetch Thumbnail</span>
+            </button>
+        </div>
+        <div id="result" class="result-card hidden">
+            <div class="img-wrapper">
+                <img id="thumbImg" src="" alt="Thumbnail">
+            </div>
+            <div class="thumbnail-actions">
+                <a id="downloadBtn" href="#" download="thumbnail.jpg">Download Image</a>
+                <button id="copyLinkBtn">Copy Image Link</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
